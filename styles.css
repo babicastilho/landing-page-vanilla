@@ -45,7 +45,7 @@ main {
     flex-direction: column;
   }
   .item .flex .left, .item .flex .right {
-    padding: 1rem 0;
+    padding: 1% 0;
     width: 100%;
   }
 }
@@ -318,7 +318,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 5px;
 }
 form .form-control {
   position: relative;
