@@ -1,0 +1,21 @@
+footer {
+  background-color: #262626;
+  color: #fafafa;
+
+  & .container {
+    & .content {
+      display: flex;
+      flex-direction: row;
+      padding: 2rem 0;
+
+      @media(max-width: 768px) {
+        padding: 1rem 0;
+        flex-direction: column;
+
+        & .left, & .right {padding: 1rem 0;}
+      }
+
+
+    }
+  }
+}
