@@ -2,10 +2,21 @@ footer {
   background-color: #262626;
   color: #fafafa;
 
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6,
+  & p {
+    color: #fafafa;
+  }
+
   & .container {
     & .content {
       display: flex;
       flex-direction: row;
+      align-items: center;
       padding: 2rem 0;
 
       @media(max-width: 768px) {
@@ -15,7 +26,18 @@ footer {
         & .left, & .right {padding: 1rem 0;}
       }
 
+      & .item {
+        padding: 2rem 0 !important;
+        
+      }
 
+      & .copyright {
+        padding: 2em 0;
+        border-top: 1px solid #fff;
+      }
     }
+
+    
   }
 }
+

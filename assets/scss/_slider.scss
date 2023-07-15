@@ -1,60 +1,167 @@
 .slider {
-  width: 100%;
   position: relative;
+  width: 100%;
+  height: 800px;
+  background-image: url('assets/img/welcome-bg.jpg');
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-bg-overlay);
+    opacity: 0.94;
+    z-index: 0;
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6,
+  & p {
+    color: #fff;
+  }
+
+  & .shape-bottom {
+    position: absolute;
+    bottom: -8px;
+    width: 100%;
+
+    & svg {
+      overflow: hidden;
+      width: 100%;
+      line-height: 0;
+      direction: ltr;
+      transform: rotate(180deg);
+    }
+  }
 
   .slides {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
 
     .slide {
+      flex: 0 0 100%;
       display: none;
 
+      @media (max-width: 767px) {
+        flex: 0 0 80%;
+        margin: 0 auto;
+       }
+
       &.active {
-        display: block;
+        display: flex;
       }
 
       .slide-content {
-        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        z-index: 1;
 
-        .text-content {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          text-align: center;
-          color: #fff;
+        .flex-container {
+          display: flex;
+          flex-direction: row;
+          max-width: 50%;
+          align-items: center;
 
-          h1, h2 {
-            margin: 0;
+          @media (max-width: 767px) {
+            flex-direction: column;
+            max-width: 100%;
           }
-        }
 
-        img {
-          width: 100%;
-          height: auto;
+          .flex-item {
+            flex: 1;
+            padding: 0 10px;
+
+            @media (max-width: 767px) {
+              padding: 10px 0;
+            }
+          }
         }
       }
     }
   }
 
-  .navigation {
-    text-align: center;
-    margin-top: 10px;
+  .controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
 
-    .slide-button {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
+    .arrow {
+      width: 30px;
+      height: 30px;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      margin: 0 1rem;
+
+      & svg {
+        width: 24px;
+        height: 24px;
+        fill: #333;
+        transform: translateY(4px);
+      }
+
+      &.next {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .indicators {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    .indicator {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background-color: #f1f1f1;
+      background-color: rgba(56, 56, 56, 0.5);
       margin: 0 5px;
       cursor: pointer;
 
       &.active {
-        background-color: #333;
+        background-color: #292929;
       }
     }
+  }
+}
+
+
+.shape-bottom {
+  position: absolute;
+  bottom: -8px;
+  width: 100%;
+
+  & svg {
+    overflow: hidden;
+    width: 100%;
+    line-height: 0;
+    direction: ltr;
+    transform: rotate(180deg);
   }
 }
