@@ -1,0 +1,126 @@
+:root { --primary-bg-color-2: linear-gradient(-47deg, #8731E8 0%, #4528DC 100%);}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  background-image: url('assets/img/welcome-bg.jpg');
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-bg-color-2);
+        opacity: 0.94;
+    z-index: 0;
+  }
+
+  .slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+
+    .slide {
+      flex: 0 0 100%;
+      display: none;
+
+      &.active {
+        display: flex;
+      }
+
+      .slide-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        z-index: 1;
+
+        .flex-container {
+          display: flex;
+          flex-direction: row;
+          max-width: 50%;
+          align-items: center;
+
+          @media (max-width: 767px) {
+            flex-direction: column;
+            max-width: 100%;
+          }
+
+          .flex-item {
+            flex: 1;
+            padding: 0 10px;
+
+            @media (max-width: 767px) {
+              padding: 10px 0;
+            }
+          }
+        }
+
+        h2 {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
+
+        h3 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+
+    .arrow {
+      width: 30px;
+      height: 30px;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+
+      &.prev {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    .indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      margin: 0 5px;
+      cursor: pointer;
+
+      &.active {
+        background-color: #fff;
+      }
+    }
+  }
+}
